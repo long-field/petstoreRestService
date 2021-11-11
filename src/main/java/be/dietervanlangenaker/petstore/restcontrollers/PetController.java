@@ -45,10 +45,9 @@ public class PetController {
             throw new PetNotFoundException();
         }
     }*/
-    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    HttpHeaders create(@RequestBody Pet pet) {
+    HttpHeaders create(@RequestBody @Valid Pet pet) {
         service.create(pet);
         var headers = new HttpHeaders();
         headers.setLocation(links.linkToItemResource(pet).toUri());
