@@ -1,34 +1,4 @@
 
-spring.datasource.url=jdbc:mysql://localhost/petstore
-spring.datasource.username=root
-spring.datasource.password=DeesIsDeMoeite1985
-spring.test.database.replace=none
-logging.level.org.hibernate.SQL=DEBUG
-spring.jpa.properties.hibernate.format_sql=true
-spring.jpa.properties.hibernate.highlight_sql=true
-logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
-spring.datasource.hikari.transaction-isolation=TRANSACTION_READ_COMMITTED
-
-insert into categories( id,name)
-values (1,'kat'),(2,'hond');
-insert into pets(id,name,categoryid,photourls,status)
-values (1,'Miro',1,'https://placekitten.com/g/200/300','SOLD');
-insert into tags(id, name, petid)
-values (1,'Greyfox',1);
-
-insert into categories( name)
-values ('kat'),('hond');
-insert into pets(name,categoryid,photourls,status)
-values ('Miro',1,'https://placekitten.com/g/200/300','SOLD');
-
-
-insert into categories( name)
-values ('kat'),('hond');
-insert into pets(name,categoryid,photourls,status)
-values ('Miro',1,'https://placekitten.com/g/200/300','SOLD');
-insert into tags(pet_id, name)
- values((select id from pets where name ='Miro'),'Grayfox')
-
 
  insert into categories( name)
  values ('kat'),('hond');
@@ -38,8 +8,3 @@ insert into tags(pet_id, name)
   values((select id from pets where name ='Miro'),1,'Grayfox')
 
 
-    <dependency>
-              <groupId>org.testcontainers</groupId>
-              <artifactId>junit-jupiter</artifactId>
-              <scope>test</scope>
-          </dependency>
