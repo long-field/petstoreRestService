@@ -45,6 +45,7 @@ public class PetController {
             throw new PetNotFoundException();
         }
     }*/
+    @Operation(summary = "Save a new pet")
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     HttpHeaders create(@RequestBody @Valid Pet pet) {
@@ -53,13 +54,19 @@ public class PetController {
         headers.setLocation(links.linkToItemResource(pet).toUri());
         return headers;
     }
+    @Operation(summary = "Delete pet by ID")
     @DeleteMapping("{id}")
     void delete(@PathVariable long id) {
         service.delete(id);
     }
+
+    @Operation(summary = "Update existing pet")
     @PutMapping
     void put( @RequestBody @Valid Pet pet) {
-        service.update(pet);
+        var petFind = service.findById(pet.getId());
+        if(petFind.isEmpty()){throw new PetNotFoundException();}
+        else {
+        service.update(pet);}
     }
     //OLD
     /*
