@@ -6,7 +6,7 @@ import be.dietervanlangenaker.petstore.domain.Tag;
 import lombok.Data;
 
 import java.util.Set;
-
+//Not used
 @Data
 public class PetDto {
 private long id;

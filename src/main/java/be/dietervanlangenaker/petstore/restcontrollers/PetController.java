@@ -1,6 +1,6 @@
 package be.dietervanlangenaker.petstore.restcontrollers;
 
-import be.dietervanlangenaker.petstore.DTO.PetDto;
+
 import be.dietervanlangenaker.petstore.domain.Pet;
 import be.dietervanlangenaker.petstore.exceptions.PetNotFoundException;
 import be.dietervanlangenaker.petstore.services.PetService;
